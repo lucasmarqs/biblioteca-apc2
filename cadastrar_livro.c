@@ -3,12 +3,12 @@
 #include "livro.h"
 #include "cadastrar_livro.h"
 
-void cadastrar_livro(){
+void cadastrar_livro() {
 	FILE* arq;
 	Livro livro;
-	
-	arq = fopen("arquivo.txt", "at");
-	
+
+	arq = fopen("livros.dat", "ab");
+
 	if (arq == NULL) {
 		printf("ERRO!\n");
 	} else {
@@ -22,12 +22,9 @@ void cadastrar_livro(){
 		fgets(livro.genero, 30, stdin);
 		printf("Ano de Lancamento: ");
 		scanf("%i", &livro.ano);
-		fflush(stdin);
 		printf("Preco: ");
 		scanf("%f", &livro.preco);
-		fflush(stdin);
-
-		fprintf(arq, "%s%s%s%s%i\n%f\n", livro.cod, livro.nome, livro.autor, livro.genero, livro.ano, livro.preco); 
+		fwrite(&livro, sizeof(Livro), 1, arq);
 		}
-	fclose(arq);	
+	fclose(arq);
 }

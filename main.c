@@ -8,10 +8,14 @@
 #include <stdio.h>
 #include <string.h>
 #include "livro.h"
+#include "cadastrar_livro.h"
+
 
 int main()
 {
 	printf("Sistema de Gerenciamento da Biblioteca\n\n");
+	
+	cadastrar_livro();
 
 	return 0;
 }

@@ -10,6 +10,7 @@
 #include "livro.h"
 #include "cadastrar_livro.h"
 #include "listar_livros.h"
+#include "contar_livros.h"
 
 void clear_buffer();
 
@@ -18,6 +19,7 @@ int main()
 	printf("Sistema de Gerenciamento da Biblioteca\n\n");
 
   int menu;
+  int total_livros;
 
   do {
     printf("Escolha a opção desejada\n0. Sair\n1. Cadastrar livros\n2. Listar todos os livros\n3. Listar quantidade de livros\n> ");
@@ -36,6 +38,8 @@ int main()
         listar_livros();
         break;
       case 3:
+        total_livros = contar_livros();
+        printf("-----------\nTotal de livros: %d\n-----------\n", total_livros);
         break;
       default:
         printf("Opção Inválida. Tente novamente.\n");

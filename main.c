@@ -11,13 +11,41 @@
 #include "cadastrar_livro.h"
 #include "listar_livros.h"
 
+void clear_buffer();
+
 int main()
 {
 	printf("Sistema de Gerenciamento da Biblioteca\n\n");
 
-	cadastrar_livro();
+  int menu;
 
-  listar_livros();
+  do {
+    printf("Escolha a opção desejada\n0. Sair\n1. Cadastrar livros\n2. Listar todos os livros\n3. Listar quantidade de livros\n> ");
+    scanf("%d", &menu);
+    clear_buffer();
 
+    switch(menu) {
+      case 0:
+        printf("Encerrando Sistema\n");
+        break;
+      case 1:
+        cadastrar_livro();
+        break;
+      case 2:
+        printf("-----------------------\n");
+        listar_livros();
+        break;
+      case 3:
+        break;
+      default:
+        printf("Opção Inválida. Tente novamente.\n");
+    }
+  } while (menu != 0);
 	return 0;
+}
+
+void clear_buffer() {
+  char buffer[2];
+
+  fgets(buffer, 2, stdin);
 }

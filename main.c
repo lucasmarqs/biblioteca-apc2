@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "livro.h"
 
 int main()
 {
